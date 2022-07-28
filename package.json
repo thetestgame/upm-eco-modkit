@@ -1,0 +1,29 @@
+{
+    "name": "com.strangeloopgames.eco-modkit",
+    "displayName": "Eco Modkit",
+    "version": "9.5.4",
+    "unity": "2020.3",
+    "author": {
+        "name": "Strange Loop Games",
+        "email": "jordan@strangeloopgames.com",
+        "url": "https://play.eco"
+    },
+    "homepage": "https://play.eco",
+    "bugs": {
+        "url": "https://play.eco"
+    },
+    "description": "Client side mod development kit for StrangeLoopGame's Eco",
+    "keywords": [
+        "modkit",
+    ],
+    "dependencies": {},
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:thetestgame/Eco-Modkit-UPM.git"
+    },
+    "resolutionStrategy": "highest",
+    "files": [
+        "Assets"
+    ]
+}
