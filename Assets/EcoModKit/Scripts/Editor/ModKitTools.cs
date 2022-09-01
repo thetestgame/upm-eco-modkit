@@ -146,4 +146,11 @@ public class ModExporter : EditorWindow
             if (activeState.ContainsKey(root.name))
                 root.SetActive(activeState[root.name]);
     }
+
+    [MenuItem("ModKit/Enable Curve")]
+    public static void EnableCurve() { Shader.EnableKeyword("NO_CURVE"); }
+
+    [MenuItem("ModKit/Disable Curve")]
+    public static void DisableCurve() { Shader.DisableKeyword("NO_CURVE"); }
+
 }

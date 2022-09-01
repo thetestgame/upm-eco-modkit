@@ -10,7 +10,7 @@ public partial class CustomControlName : MonoBehaviour
     [SerializeField, FormerlySerializedAs("LeftMouseName")]   string leftMouseName;
     [SerializeField, FormerlySerializedAs("RightMouseName")]  string rightMouseName;
     [SerializeField, FormerlySerializedAs("InteractionName")] string interactionName;
-
+    [SerializeField]                                          bool isDynamicPosition;//ControlPopupUI will update its position following the object
     // Funcs that return custom controls' text.
     // Assign any of these from another script to further customize the text when it should change based on the object's state (e.g.: doors)
     public Func<string> LeftMouseNameFunc;
@@ -21,4 +21,5 @@ public partial class CustomControlName : MonoBehaviour
     public string LeftMouseName   => this.LeftMouseNameFunc  ?.Invoke() ?? leftMouseName;
     public string RightMouseName  => this.RightMouseNameFunc ?.Invoke() ?? rightMouseName;
     public string InteractionName => this.InteractionNameFunc?.Invoke() ?? interactionName;
+    public bool IsDynamicPosition => this.isDynamicPosition;
 }

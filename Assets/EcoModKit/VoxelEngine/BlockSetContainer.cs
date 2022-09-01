@@ -3,7 +3,12 @@
 
 using UnityEngine;
 
+#nullable enable
+
+/// <summary>
+/// Simple MonoBehaviour used to contain a list of BlockSets. These are loaded into the modkit at load time.
+/// </summary>
 public class BlockSetContainer : MonoBehaviour
 {
-    public BlockSet[] blockSets;
+    public BlockSet[] blockSets = new BlockSet[1];
 }

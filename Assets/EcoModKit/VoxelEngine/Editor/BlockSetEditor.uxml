@@ -9,6 +9,8 @@
   <ui:VisualElement>
     <ui:Button name="NewBlock" text="New Block" />
     <ui:Button name="RemoveBlock" text="Remove" />
+    <ui:Button name="CreateLodGroups" text="Create Lod Groups" />
+    <ui:Button name="Validate" text="Validate assets" />
     <ui:Button name="ForceSave" text="Force Save" />
   </ui:VisualElement>
   <ui:VisualElement class="PropertyContainer">

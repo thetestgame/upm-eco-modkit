@@ -18,8 +18,9 @@ public static class BlockEditor
             block.Tier = EditorGUILayout.IntField("Tier", block.Tier);
             block.Category = EditorGUILayout.TextField("Category", block.Category);
 
-            block.Builder               = EditorGUILayout.ObjectField("Builder", block.Builder, typeof(ScriptableObject), false) as BlockBuilder;
-            block.Material              = EditorGUILayout.ObjectField("Material", block.Material, typeof(Material), false) as Material;
+            block.Builder  = EditorGUILayout.ObjectField("Builder", block.Builder, typeof(ScriptableObject), false) as BlockBuilder;
+            block.Material = EditorGUILayout.ObjectField("Material", block.Material, typeof(Material), false) as Material;
+            block.LODTexture  = EditorGUILayout.ObjectField("LOD Texture", block.LODTexture, typeof(Texture2D), false) as Texture2D;
             OverrideMaterialTransparencyInspector(ref block.OverrideMainMaterialTransparency);
 
             if (block.Materials == null)

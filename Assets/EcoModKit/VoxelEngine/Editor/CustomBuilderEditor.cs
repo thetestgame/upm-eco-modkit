@@ -10,12 +10,24 @@ using System;
 [CustomEditor(typeof(CustomBuilder))]
 class CustomBuilderEditor : Editor
 {
+    CustomBuilder customBuilder;
+    
+    void OnEnable() => customBuilder = (CustomBuilder)this.target;
+    
     public override void OnInspectorGUI()
     {
         if (GUILayout.Button("Open Editor"))
-            CustomBuilderEditorWindow.Open(target as CustomBuilder);
+            CustomBuilderEditorWindow.Open(customBuilder);
 
         base.OnInspectorGUI();
+    }
+    
+    void OnValidate()
+    {
+        // Check to make sure that every mesh usage case has a valid mesh data.
+        foreach (var usageCase in this.customBuilder.usageCases)
+            if (usageCase.mesh == null)
+                Debug.LogWarning($"CustomBuilder {this.customBuilder.name} is missing a mesh", this.customBuilder);
     }
 }
 
@@ -29,16 +41,15 @@ public class MeshUsageCaseEditorComponent : MonoBehaviour
     public OffsetCondition condition;
     public Color color;
 
-    static void DrawString(string text, UnityEngine.Vector3 worldPos, Color? colour = null)
+    static void DrawString(string text, Vector3 worldPos, Color? colour = null)
     {
-        UnityEditor.Handles.BeginGUI();
+        Handles.BeginGUI();
         if (colour.HasValue)
             GUI.color = colour.Value;
-        var view = UnityEditor.SceneView.currentDrawingSceneView;
-        UnityEngine.Vector3 screenPos = view.camera.WorldToScreenPoint(worldPos);
-        UnityEngine.Vector2 size = GUI.skin.label.CalcSize(new GUIContent(text));
-        GUI.Label(new Rect(screenPos.x - (size.x / 2), -screenPos.y + view.position.height - (size.y/2), size.x, size.y), text);
-        UnityEditor.Handles.EndGUI();
+        Vector2 screenPos = HandleUtility.WorldToGUIPoint(worldPos);
+        var size = GUI.skin.label.CalcSize(new GUIContent(text));
+        GUI.Label(new Rect(screenPos.x - (size.x / 2), screenPos.y - (size.y / 2), size.x, size.y), text);
+        Handles.EndGUI();
     }
 
     void OnDrawGizmos()

@@ -3,6 +3,8 @@
 
 #define CURVED_VERTEX(v) v = curveVertex(v, unity_ObjectToWorld, unity_WorldToObject)
 
+#include "IndirectRendering/IndirectRenderingCore.hlsl"
+
 float _WorldRadius;
 float4 _WorldCenter;
 

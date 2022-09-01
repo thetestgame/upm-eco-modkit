@@ -81,6 +81,7 @@ Shader "Curved/Standard"
             #pragma shader_feature_local _ _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
             #pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
             #pragma shader_feature_local _GLOSSYREFLECTIONS_OFF
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
             //#pragma shader_feature_local _PARALLAXMAP
 
             #pragma multi_compile_fwdbase
@@ -133,6 +134,7 @@ Shader "Curved/Standard"
             #pragma shader_feature_local _SPECULARHIGHLIGHTS_OFF
             //#pragma shader_feature_local ___ _DETAIL_MULX2
             //#pragma shader_feature_local _PARALLAXMAP
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
 
             #pragma multi_compile_fwdadd
             #pragma multi_compile_fog
@@ -176,6 +178,7 @@ Shader "Curved/Standard"
             #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
             #pragma shader_feature_local _METALLICGLOSSMAP
             #pragma shader_feature_local _PARALLAXMAP
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
             
             #pragma multi_compile_shadowcaster
             #pragma multi_compile_instancing
@@ -236,6 +239,7 @@ Shader "Curved/Standard"
             #pragma shader_feature_local _ _SPECULARHIGHLIGHTS_OFF
             #pragma shader_feature_local ___ _DETAIL_MULX2
             #pragma shader_feature_local _PARALLAXMAP
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
 
             #pragma multi_compile_prepassfinal
             #pragma multi_compile_instancing
@@ -275,6 +279,7 @@ Shader "Curved/Standard"
             #pragma shader_feature_local _ _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
             #pragma shader_feature_local ___ _DETAIL_MULX2
             #pragma shader_feature EDITOR_VISUALIZATION
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
 
             #pragma multi_compile __ FIRSTPERSONVIEW
 
@@ -324,6 +329,7 @@ Shader "Curved/Standard"
             #pragma shader_feature_local _GLOSSYREFLECTIONS_OFF
             // SM2.0: NOT SUPPORTED shader_feature_local ___ _DETAIL_MULX2
             // SM2.0: NOT SUPPORTED shader_feature_local _PARALLAXMAP
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
 
             #pragma skip_variants SHADOWS_SOFT DIRLIGHTMAP_COMBINED
 
@@ -370,6 +376,7 @@ Shader "Curved/Standard"
             //#pragma shader_feature_local ___ _DETAIL_MULX2
             // SM2.0: NOT SUPPORTED shader_feature_local _PARALLAXMAP
             #pragma skip_variants SHADOWS_SOFT
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
 
             #pragma multi_compile_fwdadd
             #pragma multi_compile_fog
@@ -405,6 +412,7 @@ Shader "Curved/Standard"
 
             #pragma shader_feature_local _ _ALPHATEST_ON _ALPHABLEND_ON _ALPHAPREMULTIPLY_ON
             #pragma shader_feature_local _METALLICGLOSSMAP
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
             
             #pragma skip_variants SHADOWS_SOFT
             
@@ -464,6 +472,7 @@ Shader "Curved/Standard"
             #pragma shader_feature_local _ _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
             #pragma shader_feature_local ___ _DETAIL_MULX2
             #pragma shader_feature EDITOR_VISUALIZATION
+            #pragma instancing_options assumeuniformscaling lodfade procedural:IndirectRenderingSetup
 
             // Eco keywords
             #pragma shader_feature NO_CURVE

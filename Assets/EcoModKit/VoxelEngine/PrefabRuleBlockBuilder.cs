@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-[Serializable]
-public partial class PrefabUsageCase
-{
-    public GameObject prefab;
-    public List<OffsetCondition> conditions = new List<OffsetCondition>();
+#nullable enable
 
-    public override string ToString()
-    {
-        return String.Format("{0} ({1} conditions)", prefab != null ? prefab.name : "None", conditions.Count);
-    }
-}
-
+/// <summary>
+/// PrefabRuleBlockBuilder uses rules similar to CustomBuilder to return a prefab.
+/// </summary>
 [Serializable]
 public partial class PrefabRuleBlockBuilder : PrefabBlockBuilder
 {

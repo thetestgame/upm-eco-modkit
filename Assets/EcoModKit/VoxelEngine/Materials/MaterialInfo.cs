@@ -3,5 +3,8 @@
 
 namespace VoxelEngine.Materials
 {
+    /// <summary>
+    /// Class which holds material info for a block.
+    /// </summary>
     public partial class MaterialInfo { }
 }

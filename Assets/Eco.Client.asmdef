@@ -2,6 +2,7 @@
     "name": "Eco.Client",
     "rootNamespace": "",
     "references": [
+        "Coffee.SoftMaskForUGUI",
         "Unity.TextMeshPro",
         "ThirdParty",
         "InputUser",
@@ -17,16 +18,23 @@
         "Unity.Rendering.Hybrid",
         "Unity.Postprocessing.Runtime",
         "Unity.Timeline",
-        "Wwise",
+        "UnityEngine.UIElementsModule",
         "VivoxUnity",
         "RuntimeGraphicsInfo",
+        "NativeTime",
         "Aura2_Core",
         "Unity.Physics",
+        "Oculus.LipSync",
+        "com.rlabrecque.steamworks.net",
         "AK.Wwise.Unity.API",
         "AK.Wwise.Unity.MonoBehaviour",
         "AK.Wwise.Unity.API.WwiseTypes",
         "AK.Wwise.Unity.Timeline",
-        "Ak.Wwise.Api.WAAPI"
+        "Ak.Wwise.Api.WAAPI",
+        "Wwise",
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "SimpleFileBrowser.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -42,9 +50,10 @@
         "DOTween.dll",
         "System.Memory.dll",
         "CsvHelper.dll",
-        "StovePCSDK.NET.dll"
+        "StovePCSDK.NET.dll",
+        "System.Collections.Immutable.dll"
     ],
-    "autoReferenced": true,
+    "autoReferenced": false,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false

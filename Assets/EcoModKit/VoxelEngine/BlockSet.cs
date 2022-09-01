@@ -4,9 +4,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#nullable enable
+
 [AddComponentMenu("VoxelEngine/BlockSet")]
-[ExecuteInEditMode]
+[ExecuteAlways]
 public class BlockSet : ScriptableObject
 {
-    public List<Block> Blocks = new List<Block>();
+    public List<Block?> Blocks = new List<Block?>();
 }

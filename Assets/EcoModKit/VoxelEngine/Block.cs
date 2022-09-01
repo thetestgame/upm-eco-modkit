@@ -4,26 +4,25 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Eco.Shared.Items;
 using Eco.Shared.Localization;
+using UnityEngine.Serialization;
 using VoxelEngine.Materials;
 
-/// <summary>Force set a material to be transparent or opaque.</summary>
-public enum OverrideMaterialTransparency : byte
-{
-    NotOverride,
-    ForceTransparent,
-    ForceOpaque
-}
-
+/// <summary>
+/// Block contains all the client side data for a block, including a builder which conains rules and meshes for rendering.
+/// </summary>
 [Serializable]
+[DebuggerDisplay("{Name}")]
 public partial class Block 
 {
-    public const ushort InvalidId = 0xFFFF;
-
-    public string Name;
+    public string       Name;
     public BlockBuilder Builder;
-    public Material Material;
+    public Material     Material;
+    [FormerlySerializedAs("Texture")]
+    public Texture2D    LODTexture;
+    
     /// <summary>
     /// Force set this.<see cref="Material"/> to be transparent. Check comment in
     /// <see cref="IsMaterialTransparent"/> for more details.
@@ -49,10 +48,6 @@ public partial class Block
     public int Tier = 0;
 
     public int BlendingPriority = 0;
-
-    // post init, these are set to the same value for faster compares
-    [NonSerialized] public int categoryID;
-    [NonSerialized] public ushort nameID;
     
     public bool GenerateMeshCollider = false;
 
@@ -67,26 +62,8 @@ public partial class Block
     public GameObject[] Effects = new GameObject[0];
     public string[] EffectNames = new string[0];
 
-    [NonSerialized] public MaterialInfo   MaterialInfo;
-    [NonSerialized] public MaterialInfo[] MaterialInfos = Array.Empty<MaterialInfo>();
-    [NonSerialized] public bool           Interactable;
-    [NonSerialized] public bool           SticksToWalls;
-    [NonSerialized] public float          MoveEfficiency = 1f;
-    [NonSerialized] public int            Hardness       = 0;
-    [NonSerialized] public bool           IsPlant        = false;
-    [NonSerialized] public int            rotation       = 0;
-    [NonSerialized] public LocString      LookAtTooltip;
-    // If each material is transparent. IsMaterialTransparent[0] is for this.Material.
-    // Elements from IsMaterialTransparent[1] to IsMaterialTransparent[IsMaterialTransparent.Count - 1] is for
-    // this.Materials. If the material is transparent, it will be skipped from generating shadow hull in
-    // ChunkBuilder.BuildWithBuildContext.
-    [NonSerialized] public List<bool>     IsMaterialTransparent;
-
     public bool IsLadder;
     public bool IsSlope;
-
-    /// <summary> True if the block is empty, water, or a non-tree plant. </summary>
-    public bool CanBuild => IsEmpty || IsWater || IsPlant;
 
 #if UNITY_EDITOR
     public UnityEditor.Editor Editor;
